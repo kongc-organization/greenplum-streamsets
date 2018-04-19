@@ -3,8 +3,7 @@ services:
   sdc:
     image: streamsets/datacollector
     hostname: "streamsets-dc"
-    command: bash
-    ports:
+    ports: 
       - "18630:18630"
     volumes:
        - ..:/code
