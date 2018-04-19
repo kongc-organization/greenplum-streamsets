@@ -1,0 +1,439 @@
+{
+  "pipelineConfig" : {
+    "schemaVersion" : 5,
+    "version" : 8,
+    "pipelineId" : "LoaddataintoGreenplum04c676c9-faa7-49de-a6df-d135befd4f3a",
+    "title" : "Load data into Greenplum",
+    "description" : "",
+    "uuid" : "545a75f0-1d21-42c7-86f6-645c13e1ee4c",
+    "configuration" : [ {
+      "name" : "executionMode",
+      "value" : "STANDALONE"
+    }, {
+      "name" : "deliveryGuarantee",
+      "value" : "AT_LEAST_ONCE"
+    }, {
+      "name" : "startEventStage",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
+    }, {
+      "name" : "stopEventStage",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
+    }, {
+      "name" : "shouldRetry",
+      "value" : true
+    }, {
+      "name" : "retryAttempts",
+      "value" : -1
+    }, {
+      "name" : "memoryLimit",
+      "value" : "${jvm:maxMemoryMB() * 0.85}"
+    }, {
+      "name" : "memoryLimitExceeded",
+      "value" : "LOG"
+    }, {
+      "name" : "notifyOnStates",
+      "value" : [ "RUN_ERROR", "STOPPED", "FINISHED" ]
+    }, {
+      "name" : "emailIDs",
+      "value" : [ ]
+    }, {
+      "name" : "constants",
+      "value" : [ ]
+    }, {
+      "name" : "badRecordsHandling",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_recordstolocalfilesystem_ToErrorLocalFSDTarget::1"
+    }, {
+      "name" : "errorRecordPolicy",
+      "value" : "ORIGINAL_RECORD"
+    }, {
+      "name" : "workerCount",
+      "value" : 0
+    }, {
+      "name" : "clusterSlaveMemory",
+      "value" : 2048
+    }, {
+      "name" : "clusterSlaveJavaOpts",
+      "value" : "-XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Dlog4j.debug"
+    }, {
+      "name" : "clusterLauncherEnv",
+      "value" : [ ]
+    }, {
+      "name" : "mesosDispatcherURL",
+      "value" : null
+    }, {
+      "name" : "hdfsS3ConfDir",
+      "value" : null
+    }, {
+      "name" : "rateLimit",
+      "value" : 0
+    }, {
+      "name" : "maxRunners",
+      "value" : 0
+    }, {
+      "name" : "shouldCreateFailureSnapshot",
+      "value" : true
+    }, {
+      "name" : "webhookConfigs",
+      "value" : [ ]
+    }, {
+      "name" : "sparkConfigs",
+      "value" : [ ]
+    }, {
+      "name" : "statsAggregatorStage",
+      "value" : ""
+    } ],
+    "uiInfo" : {
+      "previewConfig" : {
+        "previewSource" : "CONFIGURED_SOURCE",
+        "batchSize" : 10,
+        "timeout" : 10000,
+        "writeToDestinations" : false,
+        "executeLifecycleEvents" : false,
+        "showHeader" : false,
+        "showFieldType" : true,
+        "rememberMe" : false
+      }
+    },
+    "stages" : [ {
+      "instanceName" : "DevDataGenerator_01",
+      "library" : "streamsets-datacollector-dev-lib",
+      "stageName" : "com_streamsets_pipeline_stage_devtest_RandomDataGeneratorSource",
+      "stageVersion" : "5",
+      "configuration" : [ {
+        "name" : "dataGenConfigs",
+        "value" : [ {
+          "type" : "STRING",
+          "precision" : 10,
+          "scale" : 2,
+          "field" : "lastname"
+        }, {
+          "type" : "STRING",
+          "precision" : 10,
+          "scale" : 2,
+          "field" : "firstname"
+        }, {
+          "type" : "INTEGER",
+          "precision" : 10,
+          "scale" : 2,
+          "field" : "age"
+        } ]
+      }, {
+        "name" : "rootFieldType",
+        "value" : "MAP"
+      }, {
+        "name" : "headerAttributes",
+        "value" : [ ]
+      }, {
+        "name" : "delay",
+        "value" : 1000
+      }, {
+        "name" : "batchSize",
+        "value" : 1000
+      }, {
+        "name" : "numThreads",
+        "value" : 1
+      }, {
+        "name" : "eventName",
+        "value" : "generated-event"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Dev Data Generator 1",
+        "xPos" : 60,
+        "yPos" : 50,
+        "stageType" : "SOURCE"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ "DevDataGenerator_01OutputLane15240886829010" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "JDBCProducer_01",
+      "library" : "streamsets-datacollector-jdbc-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_jdbc_JdbcDTarget",
+      "stageVersion" : "6",
+      "configuration" : [ {
+        "name" : "schema",
+        "value" : null
+      }, {
+        "name" : "tableNameTemplate",
+        "value" : "usertable"
+      }, {
+        "name" : "columnNames",
+        "value" : [ {
+          "paramValue" : "?",
+          "dataType" : "USE_COLUMN_TYPE",
+          "columnName" : "lastname",
+          "field" : "/lastname"
+        }, {
+          "paramValue" : "?",
+          "dataType" : "USE_COLUMN_TYPE",
+          "columnName" : "firstname",
+          "field" : "/firstname"
+        }, {
+          "paramValue" : "?",
+          "dataType" : "USE_COLUMN_TYPE",
+          "columnName" : "age",
+          "field" : "/age"
+        } ]
+      }, {
+        "name" : "encloseTableName",
+        "value" : false
+      }, {
+        "name" : "changeLogFormat",
+        "value" : "NONE"
+      }, {
+        "name" : "defaultOperation",
+        "value" : "INSERT"
+      }, {
+        "name" : "unsupportedAction",
+        "value" : "DISCARD"
+      }, {
+        "name" : "useMultiRowInsert",
+        "value" : true
+      }, {
+        "name" : "maxPrepStmtParameters",
+        "value" : -1
+      }, {
+        "name" : "maxPrepStmtCache",
+        "value" : -1
+      }, {
+        "name" : "rollbackOnError",
+        "value" : false
+      }, {
+        "name" : "hikariConfigBean.connectionString",
+        "value" : "jdbc:postgresql://gpdbsne:5432/streamsets_db"
+      }, {
+        "name" : "hikariConfigBean.useCredentials",
+        "value" : true
+      }, {
+        "name" : "hikariConfigBean.username",
+        "value" : "gpadmin"
+      }, {
+        "name" : "hikariConfigBean.password",
+        "value" : "pivotal"
+      }, {
+        "name" : "hikariConfigBean.driverProperties",
+        "value" : [ { } ]
+      }, {
+        "name" : "hikariConfigBean.driverClassName",
+        "value" : "org.postgresql.Driver"
+      }, {
+        "name" : "hikariConfigBean.connectionTestQuery",
+        "value" : null
+      }, {
+        "name" : "hikariConfigBean.maximumPoolSize",
+        "value" : 1
+      }, {
+        "name" : "hikariConfigBean.minIdle",
+        "value" : 1
+      }, {
+        "name" : "hikariConfigBean.connectionTimeout",
+        "value" : "${30 * SECONDS}"
+      }, {
+        "name" : "hikariConfigBean.idleTimeout",
+        "value" : "${10 * MINUTES}"
+      }, {
+        "name" : "hikariConfigBean.maxLifetime",
+        "value" : "${30 * MINUTES}"
+      }, {
+        "name" : "hikariConfigBean.initialQuery",
+        "value" : null
+      }, {
+        "name" : "hikariConfigBean.transactionIsolation",
+        "value" : "DEFAULT"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "JDBC Producer 1",
+        "xPos" : 280,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ "DevDataGenerator_01OutputLane15240886829010" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    } ],
+    "errorStage" : {
+      "instanceName" : "WritetoFile_ErrorStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_recordstolocalfilesystem_ToErrorLocalFSDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "directory",
+        "value" : "/tmp"
+      }, {
+        "name" : "uniquePrefix",
+        "value" : "sdc-${sdc:id()}"
+      }, {
+        "name" : "rotationIntervalSecs",
+        "value" : "${1 * HOURS}"
+      }, {
+        "name" : "maxFileSizeMbs",
+        "value" : 512
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Error Records - Write to File",
+        "xPos" : 499,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    },
+    "info" : {
+      "pipelineId" : "LoaddataintoGreenplum04c676c9-faa7-49de-a6df-d135befd4f3a",
+      "title" : "Load data into Greenplum",
+      "description" : "",
+      "created" : 1524088676290,
+      "lastModified" : 1524090428393,
+      "creator" : "admin",
+      "lastModifier" : "admin",
+      "lastRev" : "0",
+      "uuid" : "545a75f0-1d21-42c7-86f6-645c13e1ee4c",
+      "valid" : true,
+      "metadata" : {
+        "labels" : [ ]
+      },
+      "name" : "LoaddataintoGreenplum04c676c9-faa7-49de-a6df-d135befd4f3a",
+      "sdcVersion" : "3.1.3.0",
+      "sdcId" : "3bb71255-4353-11e8-9bde-8f6c76884e53"
+    },
+    "metadata" : {
+      "labels" : [ ]
+    },
+    "statsAggregatorStage" : null,
+    "startEventStages" : [ {
+      "instanceName" : "Discard_StartEventStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Start Event - Discard",
+        "xPos" : 280,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    } ],
+    "stopEventStages" : [ {
+      "instanceName" : "Discard_StopEventStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Stop Event - Discard",
+        "xPos" : 280,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    } ],
+    "valid" : true,
+    "issues" : {
+      "pipelineIssues" : [ ],
+      "stageIssues" : { },
+      "issueCount" : 0
+    },
+    "previewable" : false
+  },
+  "pipelineRules" : {
+    "schemaVersion" : 3,
+    "version" : 2,
+    "metricsRuleDefinitions" : [ {
+      "id" : "badRecordsAlertID",
+      "alertText" : "High incidence of Error Records",
+      "metricId" : "pipeline.batchErrorRecords.counter",
+      "metricType" : "COUNTER",
+      "metricElement" : "COUNTER_COUNT",
+      "condition" : "${value() > 100}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1524088676380,
+      "valid" : true
+    }, {
+      "id" : "stageErrorAlertID",
+      "alertText" : "High incidence of Stage Errors",
+      "metricId" : "pipeline.batchErrorMessages.counter",
+      "metricType" : "COUNTER",
+      "metricElement" : "COUNTER_COUNT",
+      "condition" : "${value() > 100}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1524088676380,
+      "valid" : true
+    }, {
+      "id" : "idleGaugeID",
+      "alertText" : "Pipeline is Idle",
+      "metricId" : "RuntimeStatsGauge.gauge",
+      "metricType" : "GAUGE",
+      "metricElement" : "TIME_OF_LAST_RECEIVED_RECORD",
+      "condition" : "${time:now() - value() > 120000}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1524088676380,
+      "valid" : true
+    }, {
+      "id" : "batchTimeAlertID",
+      "alertText" : "Batch taking more time to process",
+      "metricId" : "RuntimeStatsGauge.gauge",
+      "metricType" : "GAUGE",
+      "metricElement" : "CURRENT_BATCH_AGE",
+      "condition" : "${value() > 200}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1524088676380,
+      "valid" : true
+    }, {
+      "id" : "memoryLimitAlertID",
+      "alertText" : "Memory limit for pipeline exceeded",
+      "metricId" : "pipeline.memoryConsumed.counter",
+      "metricType" : "COUNTER",
+      "metricElement" : "COUNTER_COUNT",
+      "condition" : "${value() > (jvm:maxMemoryMB() * 0.65)}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1524088676380,
+      "valid" : true
+    } ],
+    "dataRuleDefinitions" : [ ],
+    "driftRuleDefinitions" : [ ],
+    "uuid" : "5ae72d15-e55d-4352-9ee0-1a501fd6c865",
+    "configuration" : [ {
+      "name" : "emailIDs",
+      "value" : [ ]
+    }, {
+      "name" : "webhookConfigs",
+      "value" : [ ]
+    } ],
+    "ruleIssues" : [ ],
+    "configIssues" : [ ]
+  },
+  "libraryDefinitions" : null
+}
