@@ -7,9 +7,9 @@ StreamSets software delivers performance management for data flows that feed the
 <https://streamsets.com/>
 
 # Use Cases:
-1. [Loading data from StreamSets data generator into Greenplum](#Loading data from StreamSets data generator into Greenplum)
-2. [Loading data from Kafka into Greenplum](#Loading data from Kafka into Greenplum)
-3. [Loading data from Hadoop into Greenplum](#Loading data from Hadoop into Greenplum)
+1. [Loading data from StreamSets data generator into Greenplum](#Loading-data-from-StreamSets-data-generator-into-Greenplum)
+2. [Loading data from Kafka into Greenplum](#Loading-data-from-Kafka-into-Greenplum)
+3. [Loading data from Hadoop into Greenplum](#Loading-data-from-Hadoop-into-Greenplum)
 
 ## Loading data from StreamSets data generator into Greenplum:
 This example uses Streamsets data generator to generate random data and uses JDBC Producer that concurrently writes data into Greenplum.
@@ -20,5 +20,8 @@ The purpose of this use case is to demonstrate how to use StreamSets ETL solutio
 The example below shows records that are processed , number of records inserted per second while using Dev Data Generator to generate data that will be inserted into Greenplum via [JDBC Producer](https://streamsets.com/documentation/datacollector/latest/help/#datacollector/UserGuide/Destinations/JDBCProducer.html#concept_kvs_3hh_ht)
 ![alt text](usecase1/images/image18.png "Running pipeline")
 ## Loading data from Kafka into Greenplum
+To be added later
+
 
 ## Loading data from Hadoop into Greenplum
+To be added later
