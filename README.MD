@@ -20,8 +20,14 @@ The purpose of this use case is to demonstrate how to use StreamSets ETL solutio
 The example below shows records that are processed , number of records inserted per second while using Dev Data Generator to generate data that will be inserted into Greenplum via [JDBC Producer](https://streamsets.com/documentation/datacollector/latest/help/#datacollector/UserGuide/Destinations/JDBCProducer.html#concept_kvs_3hh_ht)
 ![alt text](usecase1/images/image18.png "Running pipeline")
 ## Loading data from Kafka into Greenplum
-To be added later
 
+This example uses Streamsets data generator to generate random data, store data into Kafka. Later, this example loads data from Kafka into Greenplum
+
+The purpose of this use case is to demonstrate how to use StreamSets ETL solution to load large data sets from Kafka into Greenplum database. For more details, see this [README.MD](usecase2/README.MD)
+
+
+The example below shows records that are processed , number of records inserted per second while using Kafka consumer to read data and insert data into GPDB via JDBC
+![alt text](usecase2/images/image50.png "Running pipeline")
 
 ## Loading data from Hadoop into Greenplum
 To be added later

@@ -8,14 +8,38 @@ services:
       - "18630:18630"
     volumes:
        - ..:/code
+       - ./streamsets/data/sdc:/data:rw
     tty: true
     privileged: true
-    links:
-         - gpdb5:gpdbsne
+
     networks:
       mynetwork:
         aliases:
           - streamsets-dc
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    hostname: "zookeeper"
+    ports:
+      - "2181:2181"
+    networks:
+      mynetwork:
+        aliases:
+          - zookeeper
+  kafka:
+      image: wurstmeister/kafka:1.1.0
+      hostname: "kafka"
+      ports:
+        - "9092"
+      depends_on:
+        - zookeeper 
+      networks:
+        mynetwork:
+          aliases:
+            - kafka
+      environment:
+        KAFKA_ADVERTISED_HOST_NAME: "kafka"
+        KAFKA_ADVERTISED_PORT: "9092"
+        KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
   gpdb5:
         image: "kochanpivotal/gpdb5oss:latest"
         command: bin/bash

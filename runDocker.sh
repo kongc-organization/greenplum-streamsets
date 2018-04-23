@@ -7,6 +7,25 @@ set -e
 
 # Including configurations
 . config.sh
+
+function RunStreamSets_UseCase2()
+{
+  #echo "[RunStreamSets_UseCase2] Command:  $1"
+  COMMAND=$1
+
+  if [[ -z "${COMMAND}" ]]; then
+    echo "Missing command"
+    exit -1;
+  else
+    if [[ "${COMMAND}" == "up" ]]; then
+        $DC_STREAMSETS_USE_CASE2_SCRIPT up
+    elif [[ "${COMMAND}" == "down" ]]; then
+         $DC_STREAMSETS_USE_CASE2_SCRIPT down
+    else # default option
+        $DC_STREAMSETS_USE_CASE2_SCRIPT up
+    fi
+  fi
+}
 ################################################################################
 function RunStreamSets_UseCase1()
 {
@@ -76,8 +95,12 @@ else
       echo "${COMMAND}"
   elif [[ "${TYPE}" == "usecase1" ]]; then
       RunStreamSets_UseCase1  "${COMMAND}"
+  elif [[ "${TYPE}" == "usecase2" ]]; then
+      RunStreamSets_UseCase2  "${COMMAND}"
   else # default option
        echo "Please provide a valid option"
   fi
 fi
+
+
 ################################################################################
