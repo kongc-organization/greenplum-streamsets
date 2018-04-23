@@ -128,29 +128,6 @@ You should view the console as shown in the screenshot below.
 The pipeline shows records that are processed , number of records inserted per second.
 ![alt text](images/image10.png "Running pipeline")
 
-## Configure Streamsets to load data into Greenplum
-1. Access [Streamsets console](http://localhost:18630/) via browser
-
-2. Use `admin` as username and `admin` as password
-You should view the console as shown in the screenshot below.
-![alt text](images/image1.png "Streamsets console")
-
-3. Next, click on the package manager as shown on top right menu.
-You can install the JDBC stage library by checking the checkbox and press the `+` icon, in order to install the library.
-![alt text](images/image12.png "Package Manager - under JDBC stage library")
-4. Install Postgresql JDBC driver by clicking on "external Libraries" under [Package Manager](http://localhost:18630/collector/packageManager). The link to external manager is shown at the bottom of left menu.
-![alt text](images/image14.png "Install Postgresql driver")
-For more details, [how to download JDBC driver - see this script download_postgresql.sh](data/download_postgresql.sh)
-5. You can import existing pipeline from this [file](LoaddataintoGreenplum04c676c9-faa7-49de-a6df-d135befd4f3a.json).
-![alt text](images/image12.png "Import pipeline")
-6. Your Streamsets console will show these pipeline that included Dev data generator and JDBC Producer.
-The Dev Data generator generates 3 fields such as lastname (string), firstname (string) and age (integer). By default, it generates a batch size of 1000 records and delay between batches is 1000 ms.
-The JDBC Producer is configured to use this JDBC connection string `jdbc:postgresql://gpdbsne:5432/streamsets_db` with username `gpadmin` and password `pivotal`
-![alt text](images/image16.png "Imported pipeline")
-8. Click "start" icon on the top right-sized menu, in order to run the pipeline.
-The pipeline shows records that are processed , number of records inserted per second.
-![alt text](images/image18.png "Running pipeline")
-
 
 
 ## Configure Streamsets to load data into Greenplum
