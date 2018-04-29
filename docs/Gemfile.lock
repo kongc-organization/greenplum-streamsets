@@ -71,11 +71,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.8.0)
+  jekyll
   jekyll-feed (~> 0.6)
   jekyll-paginate
   jekyll-theme-cayman-blog
-  kramdown
+  kramdown (~> 1.14)
   minima
   pygments.rb
   tzinfo-data
