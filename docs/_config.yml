@@ -25,6 +25,7 @@ github_username:  kongyew
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-cayman-blog
+remote_theme: benbalter/retlab
 plugins:
   - jekyll-feed
 
