@@ -24,7 +24,7 @@ github_username:  kongyew
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-cayman-blog
+theme: jekyll-theme-slate
 plugins:
   - jekyll-feed
 
