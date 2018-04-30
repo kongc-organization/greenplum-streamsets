@@ -10,6 +10,14 @@ StreamSets software delivers performance management for data flows that feed the
 Apache Kafka is an open-source stream-processing software platform developed by the Apache Software Foundation written in Scala and Java. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feeds.
 <https://kafka.apache.org/>
 
+![Greenplum](http://s3.amazonaws.com/greenplum.org/wp-content/uploads/2017/08/11004213/logo-greenplum.png "Greenplum")
+
+![Streamsets](https://19ttqs47cfw33zkecq3dz58m-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/StreamSets-logo-small.png "Streamsets")
+
+![Kafka](http://apache-kafka.org/images/apache-kafka.png "Kafka")
+
+
+
 # Table of Contents
 1. [Pre-requisites](#Pre-requisites)
 2. [Starting Docker-compose](#Starting-Docker-compose)

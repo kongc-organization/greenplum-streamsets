@@ -9,6 +9,8 @@ This site provides use cases and examples for Greenplum with Streamsets [greenpl
 
 
 ![Greenplum](http://s3.amazonaws.com/greenplum.org/wp-content/uploads/2017/08/11004213/logo-greenplum.png "Greenplum")
+You can find more information about Greenplum:
+[greenplum.org](https://greenplum.org)
 
 
 
@@ -19,3 +21,4 @@ This site provides use cases and examples for Greenplum with Streamsets [greenpl
 
 You can find the source code at GitHub:
 [greenplum-streamsets](https://github.com/kongc-organization/greenplum-streamsets)
+
