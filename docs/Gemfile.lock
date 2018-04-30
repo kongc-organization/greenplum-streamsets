@@ -245,6 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  minima
   tzinfo-data
 
 BUNDLED WITH
