@@ -6,7 +6,7 @@
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
 url: "https://kongc-organization.github.io/greenplum-streamsets/"
 baseurl: ""
-
+remote_theme: daattali/beautiful-jekyll
 # If you are building a GitHub project page then use these settings:
 #url: "http://username.github.io/projectname"
 #baseurl: "/projectname"
@@ -65,7 +65,7 @@ footer-link-col: "#404040"
 
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
-author: 
+author:
   name: kongyew
 
 # Select your active Social Network Links.
