@@ -25,10 +25,11 @@ description: This site provides use cases and examples for Greenplum with Stream
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - Learn markdown: "http://www.markdowntutorial.com/"
+    - Greenplum home: "http://www.greenplum.org"
+    - Streamsets home: "https://streamsets.com/"
+    - Apache Kafka home: "https://kafka.apache.org/"
     - GitHub Pages: "https://pages.github.com/"
-  Greenplum home: "http://www.greenplum.org"
+
 
 #  Author's home: "http://deanattali.com"
 
@@ -80,7 +81,7 @@ social-network-links:
   twitter: kongyew
 #  reddit: yourname
 #  google-plus: +DeanAttali
-#  linkedin: daattali
+   linkedin: kongyew
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
