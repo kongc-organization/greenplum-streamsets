@@ -2,7 +2,7 @@
 layout: post
 title:  "Use Streamsets to load files into Greenplum!"
 date:   2018-04-29 14:54:07 -0700
-categories: greenplum streamsets
+categories: greenplum streamsets streaming files
 ---
 
 

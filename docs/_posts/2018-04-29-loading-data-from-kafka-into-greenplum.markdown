@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Using Streamsets to load data from Kafka into Greenplum!"
+title:  "Using Streamsets to stream data from Kafka into Greenplum!"
 date:   2018-04-20 14:54:07 -0700
-categories: greenplum streamsets
+categories: greenplum streamsets streaming kafka
 ---
 
 
@@ -10,7 +10,7 @@ categories: greenplum streamsets
 Large volume of enterprise data are stored on data lakes such as Kafka platform You need to load these data into Greenplum so you can discover the insights and generate analytics.
 
 
-This [repository](https://github.com/kongc-organization/greenplum-streamsets/tree/master/usecase2) demonstrates how to use Streamsets to load Kafka data into Greenplum.
+This [repository](https://github.com/kongc-organization/greenplum-streamsets/tree/master/usecase2) demonstrates how to use Streamsets to stream Kafka data into Greenplum.
 
 # Pivotal Greenplum
 The Pivotal Greenplum Database (GPDB) is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
