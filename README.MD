@@ -8,7 +8,7 @@ StreamSets software delivers performance management for data flows that feed the
 
 # Use Cases:
 1. [Loading data from StreamSets data generator into Greenplum](#Loading-data-from-StreamSets-data-generator-into-Greenplum)
-2. [Loading data from Kafka into Greenplum](#Loading-data-from-Kafka-into-Greenplum)
+2. [Streaming data from Kafka into Greenplum](#Loading-data-from-Kafka-into-Greenplum)
 3. [Loading data from Hadoop into Greenplum](#Loading-data-from-Hadoop-into-Greenplum)
 
 ## Loading data from StreamSets data generator into Greenplum:
@@ -34,3 +34,5 @@ To be added later
 
 ## Reference:
 [Enhancement to Streamsets to use Greenplum native loaders](https://issues.streamsets.com/browse/SDC-7835)
+[Greenplum - ETL](https://pivotal.io/pivotal-greenplum/pivotal-greenplum-marketplace/extraction-transformation-and-loading)
+[Greenplum-github](https://github.com/greenplum-db)
