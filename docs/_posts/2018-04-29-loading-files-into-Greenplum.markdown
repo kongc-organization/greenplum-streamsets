@@ -22,3 +22,4 @@ StreamSets software delivers performance management for data flows that feed the
 [Greenplum product]: https://pivotal.io/pivotal-greenplum
 [Streamsets product]:   https://streamsets.com/blog/category/use-cases/
 [Greenplum documentations]: https://https://gpdb.docs.pivotal.io/
+[Greenplum - github]: https://github.com/greenplum-db

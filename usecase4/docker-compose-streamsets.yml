@@ -1,0 +1,69 @@
+version: '3'
+services:
+  sdc:
+    #image: streamsets/datacollector
+    build: .
+    hostname: "streamsets-dc"
+    ports:
+      - "18630:18630"
+    volumes:
+       - ..:/code
+       - ./streamsets/data/sdc:/data:rw
+    tty: true
+    privileged: true
+
+    networks:
+      mynetwork:
+        aliases:
+          - streamsets-dc
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    hostname: "zookeeper"
+    ports:
+      - "2181:2181"
+    networks:
+      mynetwork:
+        aliases:
+          - zookeeper
+  kafka:
+      image: wurstmeister/kafka:1.1.0
+      hostname: "kafka"
+      ports:
+        - "9092"
+      depends_on:
+        - zookeeper 
+      networks:
+        mynetwork:
+          aliases:
+            - kafka
+      environment:
+        KAFKA_ADVERTISED_HOST_NAME: "kafka"
+        KAFKA_ADVERTISED_PORT: "9092"
+        KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+  gpdb5:
+        image: "kochanpivotal/gpdb5oss:latest"
+        command: bin/bash
+        hostname: "gpdbsne"
+        container_name: gpdbsne
+        ports:
+         - "5432:5432"
+         - "5005:5005"
+         - "5010:5010"
+         - "9022:22"
+         - "40000:40000"
+         - "40001:40001"
+         - "40002:40002"
+        expose:
+         - "5432"
+        volumes:
+         - ..:/code
+        privileged: true
+        tty: true
+        networks:
+          mynetwork:
+            aliases:
+              - gpdbsne
+              - gpdbsne.localdomain.com
+networks:
+    mynetwork:
+      driver: bridge
