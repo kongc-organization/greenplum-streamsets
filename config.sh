@@ -13,3 +13,6 @@ export DC_STREAMSETS_USE_CASE1_SCRIPT="docker-compose -f ./usecase1/docker-compo
 
 # Data Generator generates raw data into Kafka and loads data from Kafka into GPDB
 export DC_STREAMSETS_USE_CASE2_SCRIPT="docker-compose -f ./usecase2/docker-compose-streamsets.yml"
+
+# Data Generator generates raw data into HDFS and loads data from HDFS into GPDB
+export DC_STREAMSETS_USE_CASE3_SCRIPT="docker-compose -f ./usecase3/docker-compose-streamsets.yml"

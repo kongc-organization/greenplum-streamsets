@@ -43,6 +43,12 @@ RUN cd /tmp \
 RUN ${SDC_DIST}/bin/streamsets stagelibs -list
 RUN ${SDC_DIST}/bin/streamsets stagelibs -install=${SDC_EXTRA_LIBS}
 
+RUN echo "// user-defined external directory" >> $SDC_CONF/sdc-security.policy
+RUN echo "grant codebase \"file:///${STREAMSETS_LIBRARIES_EXTRA_DIR}/-\" {" >> $SDC_CONF/sdc-security.policy
+RUN echo "  permission java.security.AllPermission;" >> $SDC_CONF/sdc-security.policy
+RUN echo "};" >> $SDC_CONF/sdc-security.policy
+
+
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 # Setup filesystem permissions.

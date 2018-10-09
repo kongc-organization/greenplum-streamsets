@@ -30,3 +30,7 @@ The example below shows records that are processed , number of records inserted 
 
 ## Loading data from Hadoop into Greenplum
 To be added later
+
+
+## Reference:
+[Enhancement to Streamsets to use Greenplum native loaders](https://issues.streamsets.com/browse/SDC-7835)
