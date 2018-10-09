@@ -32,6 +32,8 @@ The example below shows records that are processed , number of records inserted 
 To be added later
 
 
+Alternative solution:
+You can use Spark ETL solution to load data from multiple sources including Kafka, S3 and others. Using Greenplum-Spark connector, you can parallelize data transfer from Spark cluster to Greenplum cluster. 
 ## Reference:
 [Enhancement to Streamsets to use Greenplum native loaders](https://issues.streamsets.com/browse/SDC-7835)
 [Greenplum - ETL](https://pivotal.io/pivotal-greenplum/pivotal-greenplum-marketplace/extraction-transformation-and-loading)
